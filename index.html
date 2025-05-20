@@ -1,0 +1,116 @@
+<!-- File: index.html -->
+<!-- Developer: Phil Parker -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Bible Trivia Challenge</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://unpkg.com/vue@3"></script>
+  <style>
+    .modal button {
+  margin: 8px;
+  padding: 12px 24px;
+  font-size: 1rem;
+  background-color: #0055aa;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.modal button:hover {
+  background-color: #003f88;
+}
+@media (max-width: 768px) {
+  .board {
+    grid-template-columns: repeat(2, 1fr); /* 2 per row on phones */
+    gap: 8px;
+  }
+  .board-wrapper {
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+  .category-header {
+    font-size: 0.9rem;
+    padding: 6px;
+  }
+
+  .clue {
+    font-size: 1rem;
+    height: 60px;
+  }
+
+
+}
+
+
+    h1 {
+  opacity: 0;
+  transform: translateY(-30px);
+  transform: scale(0.5); 
+  transition: all 0.9s ease;
+}
+
+.title-animate {
+  opacity: 1;
+  transform: translateY(0); 
+  transform: scale(1.0);
+}
+
+.board-wrapper {
+  opacity: 0;
+  transform: scale(0.95);
+  transition: all 0.9s ease 0.3s;
+}
+
+.board-visible {
+  opacity: 1;
+  transform: scale(1);
+}
+
+    .disabled-clue {
+  background-color: #888 !important;
+  color: #ccc !important;
+  cursor: not-allowed !important;
+  pointer-events: none;
+}
+    body { font-family: Arial, sans-serif; text-align: center; }
+    .board { display: grid; grid-template-columns: repeat(5, 1fr); gap: 5px; margin: 20px; }
+    .category-header { font-weight: bold; background: #003366; color: white; padding: 10px; }
+    .clue { background: #0077cc; color: white; display: flex; justify-content: center; align-items: center; height: 80px; cursor: pointer; }
+    .modal {
+  position: fixed;
+  top: 10%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 90%;
+  max-width: 600px;
+  padding: 20px;
+  background: #fff;
+  border: 2px solid #000;
+  overflow-y: auto;
+  max-height: 80vh;
+  box-sizing: border-box;
+  z-index: 1000;
+}
+
+  </style>
+</head>
+<body>
+  <div id="app"></div>
+
+  <audio id="sfx-correct" src="sfx/correct.mp3" preload="auto"></audio>
+<audio id="sfx-incorrect" src="sfx/incorrect.mp3" preload="auto"></audio>
+<audio id="sfx-winner" src="sfx/winner.mp3" preload="auto"></audio>
+<audio id="sfx-intro" src="sfx/intro.mp3" preload="auto"></audio>
+
+  <script src="questions.js"></script>
+  <script src="Clue.js"></script>
+  <script src="Board.js"></script>
+  <script src="QuestionModal.js"></script>
+  <script src="App.js"></script>
+</body>
+</html>
