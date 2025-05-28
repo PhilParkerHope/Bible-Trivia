@@ -55,7 +55,7 @@ The source code is made **publicly viewable for learning purposes**, but may **n
 
 without written permission.
 
-If you want to build your own version or remix this, [reach out](mailto:your@email.com) for permission.
+If you want to build your own version or remix this, [reach out](mailto:philcparker8@gmail.com) for permission.
 
 ---
 
